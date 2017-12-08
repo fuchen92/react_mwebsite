@@ -1,0 +1,106 @@
+$initcolor: #ffffff;
+
+.siderbar-category {
+	left: -100%;
+}
+.siderbar-category-active {
+	left: 0;
+}
+.close-siderbar {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	color: $initcolor;
+	line-height: 30px;
+	font-size: 40px;
+}
+.category-list-container {
+	margin-top: 60px;
+	color: $initcolor;
+}
+.category-list {
+	margin-bottom: 50px;
+}
+.category-title {
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+.category-list, .category-group {
+	overflow: hidden;
+}
+.category-group {
+	margin: 0 0 10px;
+}
+.divide {
+	width: 150px;
+	height: 1px;
+	background-color: $initcolor;
+	margin: 30px 0;
+}
+.category-item {
+	width: 50%;
+}
+.only-contain-one {
+	width: 100%;
+}
+.category-link {
+	color: $initcolor;
+}
+.category-icon, .category-name {
+	display: inline-block;
+	vertical-align: middle;
+}
+.category-icon {
+	width: 25px;
+	height: 25px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-right: 10px;
+}
+.category-name {
+	font-size: 17px;
+	line-height: 35px;
+}
+@for $i from 1 through 5 {
+	.a#{$i} {
+		background-image: url("../../assets/icons/icon-a#{$i}.png")
+	}
+}
+@for $i from 1 through 14 {
+	.b#{$i} {
+		background-image: url("../../assets/icons/icon-b#{$i}.png");
+	}
+}
+@for $i from 1 through 2 {
+	.c#{$i} {
+		background-image: url("../../assets/icons/icon-c#{$i}.png");
+	}
+}
+@for $i from 1 through 2 {
+	.d#{$i} {
+		background-image: url("../../assets/icons/icon-d#{$i}.png");
+	}
+}
+@for $i from 1 through 2 {
+	.e#{$i} {
+		background-image: url("../../assets/icons/icon-e#{$i}.png");
+	}
+}
+@for $i from 1 through 2 {
+	.f#{$i} {
+		background-image: url("../../assets/icons/icon-f#{$i}.png");
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.newline {
+		float: none;
+		clear: both;
+		width: 100%;
+		padding-top: 10px;
+	}
+}

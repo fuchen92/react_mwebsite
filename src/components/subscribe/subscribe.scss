@@ -1,0 +1,62 @@
+$initcolor: #ffffff;
+$bgcolor: #FAFAFA;
+$textcolor: #666666;
+$inputbordercolor: #A3A3A3;
+$btncolor: #006395;
+
+.subscribe {
+    padding: 50px 0;
+    background-color: $bgcolor;
+    text-align: center;
+}
+.subscribe-sign, .subscribe-title {
+    display: inline-block;
+    vertical-align: middle;
+}
+.subscribe-sign {
+	width: 40px;
+	> img {
+		width: 100%;
+	}
+}
+.subscribe-title {
+	font-size: 20px;
+	color: $textcolor;
+}
+.subscribe-desc {
+    margin: 30px 0;
+    font-size: 15px;
+	line-height: 25px;
+	color: $textcolor;
+}
+.subscribe-input {
+	box-sizing: border-box;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+    border: none;
+	border-bottom: 1px solid $inputbordercolor;
+	font-size: 14px;
+    padding: 5px 15px;
+    background-color: $bgcolor;
+    text-align: center;
+}
+.tips {
+    margin-top: 10px;
+    opacity: 0;
+}
+.subscribe-btn {
+    width: 155px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid $btncolor;
+    color: $btncolor;
+    margin: 15px auto 0;
+    font-size: 15px;
+	cursor: pointer;
+	&:active {
+		background-color: $btncolor;
+    	color: $initcolor;
+	}
+}
