@@ -10,7 +10,7 @@ export default class AppFooter extends React.Component {
 			<div className="footer">
 				<div className="container">
 					<div className="footer-logo-container">
-						<img className="footer-logo" src={ footerLogo } />
+						<img className="footer-logo" src={ footerLogo } alt="footerlogo" />
 					</div>
 					<div className="footer-info">
 						<div className="footer-links">

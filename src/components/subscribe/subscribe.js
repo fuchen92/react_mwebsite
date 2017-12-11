@@ -9,7 +9,7 @@ export default class Subscribe extends Component {
 				<div className="container">
 					<div className="subscribe-title-container">
 						<span className="subscribe-sign">
-							<img src={ subscribeImg } />
+							<img src={ subscribeImg } alt="subscribe" />
 						</span>
 						<span className="subscribe-title">&nbsp;订阅邮件</span>
 					</div>

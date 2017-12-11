@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
 import "./home.scss";
 
 import AppHeader from "@/components/app-header/app-header";
@@ -11,9 +10,6 @@ import Subscribe from "@/components/subscribe/subscribe"
 import ListDefault from "@/components/list-default/list-default"
 
 export default class Home extends Component {
-	constructor (props) {
-		super(props)
-	}
 	render () {
 		return (
 			<div className="home-layout">

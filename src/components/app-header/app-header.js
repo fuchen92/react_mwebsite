@@ -16,7 +16,7 @@ export default class AppHeader extends React.Component {
 					<div className="header-search rt"></div>
 					<h3 className="site-name">
 						<NavLink to="/">
-							<img className="site-logo" src={ sitelogo } />
+							<img className="site-logo" src={ sitelogo } alt="sitelogo" />
 						</NavLink>
 					</h3>
 				</div>
