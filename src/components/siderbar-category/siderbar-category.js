@@ -227,7 +227,7 @@ export default class SiderbarCategory extends React.Component {
 											return <div className="category-group" key={ subcategory.text }>
 												<div className="category-item lt only-contain-one">
 													<a className="category-link" href={ subcategory.link }>
-														<span className={ "category-icon" + " " + subcategory.className }></span>
+														<span className={ `category-icon ${ subcategory.className }` }></span>
 														<span className="category-name">{ subcategory.text }</span>
 													</a>
 												</div>
