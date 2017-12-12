@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Banner from "@/components/banner/banner";
 import NewsCategory from "@/components/news-category/news-category";
 import Carousel from "@/components/carousel/carousel";
+import Advertise from "@/components/advertise/advertise";
 
 export default class ListDefault extends Component {
 	constructor (props) {
@@ -50,6 +51,16 @@ export default class ListDefault extends Component {
 					time: "2017-10-10"
 				}
 			],
+			advertise: {
+				id: "xcode81",
+				link: "",
+				advimg: require("../../assets/advertise-1.jpg")
+			},
+			advertise2: {
+				id: "xcode82",
+				link: "",
+				advimg: ""
+			},
 		}
 	}
 	render () {
@@ -58,8 +69,7 @@ export default class ListDefault extends Component {
 				<Banner />
 				<NewsCategory newsCategory={ this.state.newsCategory } />
 				<Carousel carouselList={ this.state.carouselList } propclass="carousel-one" advertise={
-					// <div className="advertise">advertise</div>
-					null
+					<Advertise advertise={ this.state.advertise } />
 				}>
 				</Carousel>
 				这是 listdefault 组件

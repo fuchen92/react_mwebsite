@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios"
+
 import "./home.scss";
 
 import AppHeader from "@/components/app-header/app-header";
@@ -10,6 +12,12 @@ import Subscribe from "@/components/subscribe/subscribe"
 import ListDefault from "@/components/list-default/list-default"
 
 export default class Home extends Component {
+	componentDidMount () {
+		axios.get("http://localhost:3001/api/article")
+			.then(function (res) {
+				console.log(res.data)
+			})
+	}
 	render () {
 		return (
 			<div className="home-layout">
