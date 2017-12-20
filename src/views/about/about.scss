@@ -1,7 +1,7 @@
 .about {
 	margin-top: 50px;
 }
-.banner {
+.about-banner {
     margin-top: 50px;
     overflow: hidden;
     height: 200px;
@@ -99,6 +99,10 @@
     background-color: #A0A0A0;
     margin: 0 5px;
     opacity: 1;
+}
+.swiper-pagination-bullet-active {
+    background-color: #E3E3E3;
+    border: 1px solid #006395;
 }
 .comment-photo {
     background-size: 90%;
