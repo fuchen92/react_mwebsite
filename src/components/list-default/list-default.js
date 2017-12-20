@@ -89,14 +89,14 @@ export default class ListDefault extends Component {
 	}
 
 	componentWillMount () {
-		axios.get("http://192.168.1.25:3001/api/news")
+		axios.get("http://localhost:3001/api/news")
 			.then(req => {
 				this.setState({
 					newsList: req.data
 				})
 			})
 
-		axios.get("http://192.168.1.25:3001/api/news2")
+		axios.get("http://localhost:3001/api/news2")
 			.then(req => {
 				this.setState({
 					newsList2: req.data
