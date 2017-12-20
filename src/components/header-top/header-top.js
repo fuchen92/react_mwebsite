@@ -23,7 +23,7 @@ export default class HeaderTop extends Component {
                     <div className="header-arrow lt" onClick={ this.goback }></div>
                     <h3 className="site-name">
                         <Link to="/">
-                            <img className="site-logo" src={ sitelogo } />
+                            <img className="site-logo" src={ sitelogo } alt="sitelogo" />
                         </Link>
                     </h3>
                 </div>
