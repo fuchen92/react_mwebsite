@@ -7,6 +7,7 @@ import Home from "@/views/home/home"
 import Channel from "@/views/channel/channel"
 import Article from "@/views/article/article"
 import About from "@/views/about/about"
+import Join from "@/views/join/join"
 
 import AppFooter from "@/components/app-footer/app-footer"
 
@@ -19,6 +20,7 @@ export default class Layout extends Component {
 					<Route path="/channel/:id" component={ Channel }></Route>
 					<Route path="/article/:id" component={ Article }></Route>
 					<Route path="/about" component={ About }></Route>
+					<Route path="/join" component={ Join }></Route>
 				</Switch>
 				<AppFooter />
 			</div>
