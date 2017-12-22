@@ -1,0 +1,63 @@
+$init-color: #ffffff;				// 初始色
+$basic-color: #006395;				// 主题色
+$post-title-color: #252525;			// 文章标题色
+$menu-color: #666666;				// 导航菜单文字颜色
+$newsintro-color: #666666;			// 新闻简介颜色
+$newstime-color: #999999;			// 新闻时间颜色
+
+.interest-container {
+    overflow: hidden;
+    padding: 50px 0;
+}
+.interest-title {
+	font-size: 16px;
+    margin-bottom: 30px;
+    color: $post-title-color;
+}
+.interest-list {
+    overflow: hidden;
+    margin-bottom: 30px;
+    height: 90px;
+}
+.interest-img-container {
+	width: 130px;
+	> img {
+		width: 100%;
+	}
+}
+.interest-content {
+    width: calc(100% - 145px);
+    height: 100%;
+    position: relative;
+}
+.interest-article, .keywords-container {
+    position: absolute;
+    left: 0;
+}
+.interest-article {
+    top: 0;
+    font-weight: normal;
+	font-size: 16px;
+	> a {
+		color: $post-title-color;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+	}
+}
+.keywords-container {
+    bottom: 0;
+}
+.keywords, .interest-time {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+}
+.interest-time {
+    padding-left: 25px;
+	background: url(../../assets/time.png) left center no-repeat;
+	background-size: contain;
+    color: $newstime-color;
+}
