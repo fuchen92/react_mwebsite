@@ -13,7 +13,9 @@ export default class Article extends Component {
 		super(props)
 
 		this.state = {
-			article: {},
+			article: {
+				keywords: []
+			},
 			advertise: {
 				id: "xcode84",
 				link: "",
@@ -50,36 +52,37 @@ export default class Article extends Component {
 
 	}
 
+	/**
+	 * 此处记录一个问题：
+	 * 	初始 state 某个字段一开始定义为空，异步加载数据设置此字段
+	 * 	render 方法中，如果此字段下结构有多层，初始渲染会直接报错
+	 * 	必须在此字段中定义返回加载数据的结构中一样的字段
+	 *
+	 * 	上面以 article 为例，article 的内容为异步加载的数据
+	 * 		article 下面有一个 keywords 字段为一个数组，如果初始不定义一个相同 keywords 字段名，则在 render 方法中直接报错
+	 *
+	 * 	article ｛
+	 * 		// 如果此处不设置一个 keywords 同名字段（就是和请求返回的数据结构中有一个相同的字段），在 render 方法中使用 keywords 会直接报错		false
+	 * 	｝
+	 *
+	 * 	article ｛
+	 * 		keywords：【】		须定义一个 keyworkds 字段，和请求返回的数据结构中同名的字段一样			right
+	 * 	｝
+	 *
+	 */
+
 	componentWillMount () {
 		axios.get("http://localhost:3001/api/article")
 			.then(req => {
-				console.log("33333")
 				this.setState({
 					article: req.data
 				})
-				// this.setState( (prevState, data) => {
-				// 	console.log(data)
-				// 	// article: req.data
-				// })
 			})
-		console.log("111111")
 	}
 
-	componentWillReceiveProps (nextProps) {
-		console.log(nextProps)
-	}
-
-	shouldComponentUpdate (nextProps, nextState) {
-		console.log(nextProps)
-		console.log(nextState)
-		console.log("22222")
-		return false
-	}
 
 	render () {
-		console.log("4444444")
 		const { article, advertise, interestList } = this.state;
-		const articleKeyWords = article.keywords;
 		return (
 			<div className="article">
 				<HeaderTop />
@@ -99,11 +102,10 @@ export default class Article extends Component {
 							<div className="article-detail-item">
 								<div className="label-list">
 									{
-										// articleKeyWords[0].kword
-										// articleKeyWords.map( (kw, index) => {
-										// 	<Link classNameName="label-item lt" to={ kw.link }>{ kw.keyword }</Link>
-										// })
-										this.state.abc
+										article.keywords.map( (kw, index) => {
+											// <Link classNameName="label-item lt" to={ kw.link }>{ kw.keyword }</Link>
+											return <div>{ kw.kword }</div>
+										})
 									}
 								</div>
 								<div className="article-attention">
