@@ -19,7 +19,7 @@ export default class Article extends Component {
 			advertise: {
 				id: "xcode84",
 				link: "",
-				img: require("../../assets/advertise-1.jpg")
+				advimg: require("../../assets/advertise-1.jpg")
 			},
 			interestList: [
 				{
@@ -46,8 +46,7 @@ export default class Article extends Component {
 					time: "2017-10-17",
 					title: "万豪Moxy时尚酒店落户曼哈顿，直指Airbnb"
 				}
-			],
-			abc: ""
+			]
 		}
 
 	}
@@ -103,8 +102,7 @@ export default class Article extends Component {
 								<div className="label-list">
 									{
 										article.keywords.map( (kw, index) => {
-											// <Link classNameName="label-item lt" to={ kw.link }>{ kw.keyword }</Link>
-											return <div>{ kw.kword }</div>
+											return <Link className="label-item lt" to={ kw.link } key={ kw.kword }>{ kw.kword }</Link>
 										})
 									}
 								</div>
@@ -113,7 +111,7 @@ export default class Article extends Component {
 									<a className="article-link" href="">CC BY-NC4.0</a>
 								</div>
 							</div>
-							<Advertise className="article-advertise" advertise={ advertise }></Advertise>
+							<Advertise advertise={ advertise }></Advertise>
 						</div>
 					</div>
 					<Interest interestList={ interestList } />
