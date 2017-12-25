@@ -15,53 +15,53 @@
 ## 目录结构
 
 ```
-	react_mwebsite
-		config
-		node_modules				// 不用说了吧
-		public						// index.html文件入口
-		screenshots					// 截图
-		scripts						// create react app run eject 后抽离出来的脚本文件
-		server						// 提供mock假数据的文件，这个里面都是假数据，可以直接看到请求的数据结构
-		src							// 源代码
-			assets					// 一些用到的图片和样式
-			components				// 组件
-				advertise			// advertise 组件，每个文件夹包含该组件的 js 代码和 scss 样式
+react_mwebsite
+	config
+	node_modules				// 不用说了吧
+	public						// index.html文件入口
+	screenshots					// 截图
+	scripts						// create react app run eject 后抽离出来的脚本文件
+	server						// 提供mock假数据的文件，这个里面都是假数据，可以直接看到请求的数据结构
+	src							// 源代码
+		assets					// 一些用到的图片和样式
+		components				// 组件
+			advertise			// advertise 组件，每个文件夹包含该组件的 js 代码和 scss 样式
+			...
+		router					// 路由（说明：这里的文件夹其实没什么作用，react-router4版本有极大的改变，实际上的router配置在views/layout文件夹下layout.js就是实际的路由配置）
+		views					// 视图，也就是页面
+			layout				// 布局页，其实也是路由配置
+				layout.js		// 实际上的 router 配置
+			about				// about 页面
 				...
-			router					// 路由（说明：这里的文件夹其实没什么作用，react-router4版本有极大的改变，实际上的router配置在views/layout文件夹下layout.js就是实际的路由配置）
-			views					// 视图，也就是页面
-				layout				// 布局页，其实也是路由配置
-					layout.js		// 实际上的 router 配置
-				about				// about 页面
-					...
-			App.css					// 初始化项目文件
-			App.js					// 初始化项目文件
-			App.test.js				// 初始化项目文件
-			index.css				// 初始化项目文件
-			index.js				// 入口文件
-			logo.svg
-			registerServiceWorker.js	// 入口文件
-		.editorconfig
-		.gitignore
-		package-lock.json
-		package.json
-		README.md
+		App.css					// 初始化项目文件
+		App.js					// 初始化项目文件
+		App.test.js				// 初始化项目文件
+		index.css				// 初始化项目文件
+		index.js				// 入口文件
+		logo.svg
+		registerServiceWorker.js	// 入口文件
+	.editorconfig
+	.gitignore
+	package-lock.json
+	package.json
+	README.md
 ```
 
 ## 运行
 ```
-	# 安装依赖
-	cd react_mwebsite/server
-	npm install
+# 安装依赖
+cd react_mwebsite/server
+npm install
 
-	# 启动提供mock数据的服务
-	node index.js
+# 启动提供mock数据的服务
+node index.js
 
-	# 安装依赖
-	cd react_mwebsite
-	npm install
+# 安装依赖
+cd react_mwebsite
+npm install
 
-	# 启动
-	npm start
+# 启动
+npm start
 ```
 
 ## 页面
@@ -104,24 +104,29 @@
 同时也发现了 react 的一点问题，不知道是我使用的姿势不对还是react本身的原因。在我写 article（views/article/article） 页面组件的时候，this.state.article内容是一个空的对象，里面的数据是请求服务后再进行填充的，填充后有多层数据结构，如果一开始不在 article 中定义一个同名的字段，那么在 render 方法中使用会直接报错。文字显得不那么好表达，以下是代码，同时在 article（views/article/article）文件当中也可以看到，我把问题记录在那里了，也记录了解决办法
 
 ```
-	article 页面组件
-		this.state = {
-			/*
-				注意：article本来是空的，里面的数据是请求后才得到
-					也就是说里面的 keywords 数组，其实是请求后才填充进article的数据
-			*/
-			article: {}		// 此时如果这里不定义一个同名的keywords字段，在render中使用keyword是会直接报错的  false
-		}
+article 页面组件
+	this.state = {
+		/*
+			注意：article本来是空的，里面的数据是请求后才得到
+				也就是说里面的 keywords 数组，其实是请求后才填充进article的数据
+		*/
+		// 此时如果这里不定义一个同名的keywords字段，在render中使用keyword是会直接报错的  false
+		article: {}
+	}
 
-		/* 你得这么写（解决方法） */
-		this.state = {
-			article: {
-				keywords: []		// 需要在这里定义一个keywords同名字段。不知道是我使用的姿势不对还是react本身的问题。但我确实这么写解决了问题。
-			}
+	/* 你得这么写（解决方法） */
+	this.state = {
+		article: {
+			// 需要在这里定义一个keywords同名字段。不知道是我使用的姿势不对还是react本身的问题。但我确实这么写解决了问题。
+			keywords: []
 		}
+	}
 
-	引申出来的一个问题：
-		如果在 render 之前就要有数据，也就是先有数据在渲染，那么componentWillMount里面如果有异步请求的话，还是会先执行render方法，由于一开始数据是空的，那么页面上就会先出现空白。不知道有哪位道友有好的解决办法。目前想到的就是先显示一个加载画面什么的，等数据好了之后在setState一下:joy:
+引申出来的一个问题：
+	如果在 render 之前就要有数据，也就是先有数据在渲染。
+	那么componentWillMount里面如果有异步请求的话，还是会先执行render方法。
+	由于一开始数据是空的，那么页面上就会先出现空白，不知道有哪位道友有好的解决办法。
+	目前想到的就是先显示一个加载画面什么的，等数据好了之后在setState一下:joy:
 ```
 
 
